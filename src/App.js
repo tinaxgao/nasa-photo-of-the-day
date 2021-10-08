@@ -43,6 +43,7 @@ function App() {
       <Card id="apodInfo">
         <h1>{nasaData.title}</h1>
         <p>{nasaData.date}</p>
+        <p>{nasaData.explanation}</p>
       </Card>
     </div>
   );
