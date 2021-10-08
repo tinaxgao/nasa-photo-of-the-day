@@ -1,6 +1,6 @@
 //theme
 export overlayContainer {
- width: 150 px;
+ width: 60%;
  height: 150 px;
  position: relative;
  margin: 30 px;

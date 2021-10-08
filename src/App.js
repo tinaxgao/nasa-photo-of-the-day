@@ -5,35 +5,35 @@ import { BASE_URL, API_KEY } from './constants/constants'
 import styled from 'styled-components';
 
 const Card = styled.div`
-  width: 60%;
+  width: 80%;
   position: absolute;
-  margin: 30 px;
+  margin: 30px;
   z-index: 9;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  color: white;
   `
 
 function App() {
   const [nasaData, setNasaData] = useState([]); //declare data name
 
   useEffect(() => {
-    axios.get(`${BASE_URL}api_key=${API_KEY}`)
+    axios.get(`${BASE_URL}api_key=${API_KEY}&count=1`)
     .then(resp => {
-      console.log(resp.data);
-      setNasaData(resp.data);
+      console.log(resp.data[0]);
+      setNasaData(resp.data[0]);
     }).catch(err => {
       console.error(err)
     })
    }, [])   // use effect & axios to bring in data,set response data as const
 
+   
+
   return (
-    <div className="App">
-      <div id="nasaImg" style={{ backgroundImage: `url(${nasaData.url})` }}>
+       <div id="nasaImg" style={{ height: '100vh', width: '100%', backgroundImage: `url(${nasaData.url})` }}>
       <Card id="apodInfo">
         <h1>{nasaData.title}</h1>
         <p>{nasaData.date}</p>
-        {nasaData.count}
       </Card>
-      </div>
     </div>
   );
 }
